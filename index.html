@@ -24,10 +24,113 @@
 	<meta property="og:url" content="https://anantarajshrestha.com.np/"/>
 	<meta property="og:image:width" content="1200"/>
 	<meta property="og:image:height" content="627" />
+    <style>
+        #preloader {
+    width: 100%;
+    height: 100%;
+    background-color:#000;
+    /* opacity:0.9; */
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left:0;
+}
+#preloader-circle {
+    position:relative;
+    width: 80px;
+    height: 80px;
+    top: 45%;
+    margin: auto;
+  
+}
+#preloader-circle span {
+    position:absolute;
+    border: 1px solid teal;
+    border-top: 1px solid transparent;
+    border-radius: 50%;
+}
 
+#preloader-circle span:nth-child(1){
+    width:80px;
+    height:80px;
+    animation: span-1 2s  linear infinite;
+}
+#preloader-circle span:nth-child(2){
+    top: 20px;
+    left: 20px;
+    width:40px;
+    height:40px;
+    animation: span-2 1s infinite linear;
+}
+@keyframes span-1 {
+    0% {transform: rotate(360deg); opacity: 1;}
+    50% {transform: rotate(180deg); opacity: 0.5;}
+    100% {transform: rotate(0deg); opacity: 1;}
+}
+@keyframes span-2 {
+    0% {transform: rotate(0deg); opacity: 0.5;}
+    50% {transform: rotate(180deg); opacity: 1;}
+    100% {transform: rotate(360deg); opacity: 0.5;}
+}
+
+
+
+
+.dropdown {
+  float: auto;
+
+}
+
+.dropdown .dropbtn {
+
+  border: none;
+  outline: none;
+  background-color: inherit;
+
+
+}
+
+.dropdown:hover .dropbtn {
+  background-color: transparent;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: crimson;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: transparent;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+    </style>
 
 </head>
 <body>
+          <!-- preloader -->
+          <div id="preloader">
+            <div id="preloader-circle">
+                <span></span>
+                <span></span>
+                
+            </div>
+        </div>
+        <!-- /preloader -->
     <div class="scroll-up-btn">
         <i class="fas fa-angle-up"></i>
     </div>
@@ -37,11 +140,23 @@
             <ul class="menu">
                 <li><a href="#home" class="menu-btn">Home</a></li>
                 <li><a href="#about" class="menu-btn">About</a></li>
-                <li><a href="#services" class="menu-btn">Services</a></li>
+        
                 <li><a href="#portfolio" class="menu-btn">Portfolio</a></li>
                 <li><a href="#skills" class="menu-btn">Skills</a></li>
                 <li><a href="#experience" class="menu-btn">Experiences</a></li>
                 <li><a href="#education" class="menu-btn">Education</a></li>
+
+                <li class="dropdown ">
+                    <button class="dropbtn"><a href="#" class="menu-btn">Vivid<i class="fa fa-caret-down"></i></a>
+                    </button>
+                    <span class="dropdown-content">
+                        <a href="#services" class="menu-btn">Services</a>
+                        <a href="https://blog.anantarajshrestha.com.np" class="menu-btn">Blog</a>
+                        <a href="https://pga.anantarajshrestha.com.np" class="menu-btn">PGA Calculator</a>
+                 
+                    </span>
+                  </li> 
+        
                 <li><a href="#contact" class="menu-btn">Contact</a></li>
             </ul>
             <div class="menu-btn">
@@ -245,9 +360,9 @@
         <h2 class="title">Experiences and Education</h2>
         <div class="contact-content">
             <div class="column left">
-                <div class="head text"><b><i class="fa fa-check-circle"></i> Experiences</b></div>
+                <div class="head text" style="margin-left: 20px;font-size: 30px;text-decoration: underline;"><b><i class="fa fa-check-circle"></i> Experiences;</b></div>
              
-                <br><br><br>
+                <br><br>
                     <div class="row">
                        
                        
@@ -299,9 +414,9 @@
                 </div>
            <br><br>
             </div>
-            
-            <div class="column right" id="education">
-                <div class="head text"><b><i class="fa fa-check-circle"></i> Education</b></div>
+         
+            <div class="column right "  id="education">
+                <div class="head text" style="margin-left: 20px;margin-top:-50px; font-size: 28px;text-decoration: underline;"><b><i class="fa fa-check-circle"></i> Education;</b></div>
                 <br>
                 <div class="row">
                    
@@ -354,7 +469,7 @@
                         </div>
                 </div>
                </div>
-       
+   
         </div>
         </div>
                 
@@ -469,5 +584,17 @@
     createStars();
     
   </script>
+  <!-- Your main content goes here -->
+  <script>
+
+
+  
+    window.onload = function()
+    {
+       
+    document.getElementById('preloader').style.display = 'none';
+    };
+    </script>
+
 </body>
 </html>
