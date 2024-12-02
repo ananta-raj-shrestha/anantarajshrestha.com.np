@@ -192,33 +192,7 @@
 
 </head>
 <body oncontextmenu="return false">
-	 <!-- Overlay (optional, darkens the background) -->
-    <div id="overlay"></div>
 
-    <!-- Pop-up box -->
-    <div id="popup">
-      <p>
-        Do you want to make your own portfolio with us? Just DM at
-        <strong>er@anantarajshrestha.com.np</strong>
-      </p>
-      <button class="skip-button" onclick="closePopup()">Skip</button>
-    </div>
-
-    <script>
-      // Function to display the pop-up after 5 seconds
-      window.onload = function () {
-        setTimeout(function () {
-          document.getElementById("popup").style.display = "block";
-          document.getElementById("overlay").style.display = "block";
-        }, 5000); // 5 seconds delay
-      };
-
-      // Function to close the pop-up
-      function closePopup() {
-        document.getElementById("popup").style.display = "none";
-        document.getElementById("overlay").style.display = "none";
-      }
-    </script>
 <!-- 	Mouse Click Ripple Forming Effects -->
 	
 	<h1 class="title"></h1>
@@ -690,7 +664,35 @@
     <footer>
         <span>Made with ❤️ By <a href="https://www.anantarajshrestha.com.np">Er. ANANTA RAJ SHRESTHA</a> | <span class="far fa-copyright"></span> <span id="year"></span> All rights reserved. | Last Updated: <span id="lastUpdated"></span></span>
     </footer>
-	
+		 <!-- Overlay (optional, darkens the background) -->
+    <div id="overlay"></div>
+
+    <!-- Pop-up box -->
+    <div id="popup">
+      <p>
+        Do you want to make your own portfolio with us? Just DM at
+        <strong>er@anantarajshrestha.com.np</strong>
+      </p>
+      <button class="skip-button" onclick="closePopup()">Skip</button>
+    </div>
+
+    <script>
+// Function to display the pop-up after 5 seconds
+setTimeout(function () {
+  document.getElementById("popup").style.display = "block";
+  document.getElementById("overlay").style.display = "block";
+}, 5000); // 5 seconds delay
+
+// Generate falling stars
+generateStars(30); // Generate 30 stars
+
+// Function to close the pop-up
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+  document.getElementById("overlay").style.display = "none";
+}
+
+    </script>
     <script>
         const d = new Date();
         let year = d.getFullYear();
