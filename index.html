@@ -182,6 +182,8 @@
                         <a href="#services" class="menu-btn">Services</a>
                         <a href="https://blog.anantarajshrestha.com.np" class="menu-btn">Blog</a>
 <!--                         <a href="https://pga.anantarajshrestha.com.np" class="menu-btn">PGA Calculator</a> -->
+			      <a href="https://discovernepal.me" class="menu-btn">Discover Nepal</a>
+			         <a href="https://thethreedots.tech" class="menu-btn">The Three Dots</a>
                         <a href="https://doece.pcampus.edu.np/index.php/msncs/" class="menu-btn">IOE Pulchowk MSNCS Course</a>
                  
                     </span>
@@ -396,14 +398,14 @@
                             <span>Networking and Virtualization</span>
                             <span>60%</span>
                         </div>
-                        <div class="line network&virtualization"></div>
+                        <div class="line python"></div>
                     </div>
 	 	  <div class="bars">
                         <div class="info">
                             <span>Server Administration</span>
                             <span>60%</span>
                         </div>
-                        <div class="line serveradministration"></div>
+                        <div class="line python"></div>
                     </div>
                 </div>
             </div>
@@ -615,7 +617,7 @@
     <!-- footer section start -->
 
     <footer>
-        <span>Made with ❤️ By <a href="https://www.anantarajshrestha.com.np">Er. ANANTA RAJ SHRESTHA</a> | <span class="far fa-copyright"></span> <span id="year"></span> All rights reserved.</span>
+        <span>Made with ❤️ By <a href="https://www.anantarajshrestha.com.np">Er. ANANTA RAJ SHRESTHA</a> | <span class="far fa-copyright"></span> <span id="year"></span> All rights reserved. Last Updated: <span id="lastUpdated"></span></span>
     </footer>
     <script>
         const d = new Date();
@@ -666,7 +668,12 @@
        
     document.getElementById('preloader').style.display = 'none';
     };
-	 
+	      // Get the last modified date of the HTML file
+      const lastModifiedDate = new Date(document.lastModified);
+      const formattedDate = lastModifiedDate.toLocaleString(); // Format the date
+
+      // Set the "Last Updated" time in the glowing box
+      document.getElementById("lastUpdated").textContent = formattedDate;
     </script>
 
 </body>
