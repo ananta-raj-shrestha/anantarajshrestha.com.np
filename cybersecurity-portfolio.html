@@ -1,1 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Er. Ananta Raj Shrestha | Cybersecurity Portfolio</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+background:#0b0f1a;
+color:white;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+overflow-x:hidden;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+text-align:center;
+background:linear-gradient(270deg,#000428,#004e92);
+background-size:400% 400%;
+animation:gradient 12s ease infinite;
+}
+
+@keyframes gradient{
+0%{background-position:0%}
+50%{background-position:100%}
+100%{background-position:0%}
+}
+
+.hero h1{
+font-family:'Orbitron';
+font-size:60px;
+text-shadow:0 0 25px cyan;
+}
+
+.hero p{
+font-size:20px;
+color:#cfd8ff;
+}
+
+/* SECTIONS */
+
+.section{
+padding:100px 0;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+font-family:'Orbitron';
+color:#00fff7;
+}
+
+/* SKILLS */
+
+.skill{
+background:#101828;
+padding:20px;
+border-radius:10px;
+margin-bottom:20px;
+}
+
+.progress{
+height:8px;
+}
+
+/* BADGES */
+
+.badges img{
+width:200px;
+margin:20px;
+transition:0.3s;
+}
+
+.badges img:hover{
+transform:scale(1.1);
+}
+
+/* FOOTER */
+
+footer{
+background:#020617;
+padding:40px;
+text-align:center;
+color:#888;
+}
+
+/* PARTICLE CANVAS */
+
+#particles{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="container">
+
+<h1>Er. Ananta Raj Shrestha</h1>
+
+<p>Threat Intelligence | Ethical Hacking | Security Research</p>
+
+<a href="#badges" class="btn btn-outline-info btn-lg mt-4">
+View Achievements
+</a>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title">About Me</h2>
+
+<div class="row align-items-center">
+
+<div class="col-md-6">
+
+<p>
+
+I am <b>Ananta Raj Shrestha</b>, a cybersecurity enthusiast passionate about
+ethical hacking, vulnerability assessment, and threat intelligence.  
+My goal is to strengthen digital security by identifying vulnerabilities
+and helping organizations defend against cyber threats.
+
+</p>
+
+<p>
+
+I actively practice cybersecurity labs on TryHackMe and continuously
+earn industry-recognized certifications through Credly while expanding
+my practical security knowledge.
+
+</p>
+
+</div>
+
+<div class="col-md-6 text-center">
+
+<img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" width="250">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title">Cybersecurity Skills</h2>
+
+<div class="row">
+
+<div class="col-md-6 skill">
+
+<p>Penetration Testing</p>
+<div class="progress">
+<div class="progress-bar bg-info" style="width:85%"></div>
+</div>
+
+</div>
+
+<div class="col-md-6 skill">
+
+<p>Threat Intelligence</p>
+<div class="progress">
+<div class="progress-bar bg-info" style="width:80%"></div>
+</div>
+
+</div>
+
+<div class="col-md-6 skill">
+
+<p>Network Security</p>
+<div class="progress">
+<div class="progress-bar bg-info" style="width:75%"></div>
+</div>
+
+</div>
+
+<div class="col-md-6 skill">
+
+<p>Digital Forensics</p>
+<div class="progress">
+<div class="progress-bar bg-info" style="width:70%"></div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- BADGES -->
+
+<section id="badges" class="section">
+
+<div class="container text-center">
+
+<h2 class="section-title">Achievements & Badges</h2>
+
+<div class="d-flex justify-content-center flex-wrap align-items-center">
+
+<div class="m-4">
+
+<img src="https://tryhackme-badges.s3.amazonaws.com/080msncs002.ananta.png" alt="TryHackMe Badge">
+
+</div>
+
+<div class="m-4">
+
+<div data-iframe-width="180"
+data-iframe-height="270"
+data-share-badge-id="a0ed648e-753c-4b28-8c9c-23c780827980"
+data-share-badge-host="https://www.credly.com"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="section">
+
+<div class="container text-center">
+
+<h2 class="section-title">Contact</h2>
+
+<p>Email: ananta@example.com</p>
+<p>Website: anantarajshrestha.com.np</p>
+
+<a href="https://anantarajshrestha.com.np"
+target="_blank"
+class="btn btn-outline-info btn-lg mt-4">
+
+🏠 Go to Home Website
+
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Er. Ananta Raj Shrestha | Cybersecurity Portfolio
+
+</footer>
+
+<script src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+/* PARTICLES BACKGROUND */
+
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles=[];
+
+for(let i=0;i<80;i++){
+
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+dx:(Math.random()-0.5),
+dy:(Math.random()-0.5)
+})
+
+}
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle="cyan";
+ctx.fill();
+
+p.x+=p.dx;
+p.y+=p.dy;
+
+})
+
+requestAnimationFrame(draw)
+
+}
+
+draw();
+
+
+/* MATRIX RAIN EFFECT */
+
+const matrixCanvas = document.createElement("canvas");
+document.body.appendChild(matrixCanvas);
+
+const mctx = matrixCanvas.getContext("2d");
+
+matrixCanvas.width = window.innerWidth;
+matrixCanvas.height = window.innerHeight;
+
+const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const fontSize = 14;
+const columns = matrixCanvas.width/fontSize;
+
+const drops = [];
+
+for(let x=0;x<columns;x++)
+drops[x]=1;
+
+function matrix(){
+
+mctx.fillStyle="rgba(0,0,0,0.05)";
+mctx.fillRect(0,0,matrixCanvas.width,matrixCanvas.height);
+
+mctx.fillStyle="#00fff7";
+mctx.font=fontSize+"px monospace";
+
+for(let i=0;i<drops.length;i++){
+
+const text=letters.charAt(Math.floor(Math.random()*letters.length));
+
+mctx.fillText(text,i*fontSize,drops[i]*fontSize);
+
+if(drops[i]*fontSize>matrixCanvas.height && Math.random()>0.975)
+drops[i]=0;
+
+drops[i]++;
+
+}
+
+}
+
+setInterval(matrix,33);
+
+</script>
+
+</body>
+</html>
