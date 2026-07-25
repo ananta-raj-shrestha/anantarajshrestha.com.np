@@ -7,7 +7,7 @@
 <meta name="description" content="Er. Ananta Raj Shrestha — Threat Intelligence, Ethical Hacking & Security Research portfolio.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -23,6 +23,13 @@
     --bg:#f4f6f9;
     --radius:2px;
     --font:'Noto Sans', system-ui, sans-serif;
+    --font-dev:'Noto Sans Devanagari', 'Noto Sans', system-ui, sans-serif;
+  }
+
+  /* Devanagari script gets its own font so Nepali / Nepal Bhasa render correctly */
+  html[lang="ne"] body, html[lang="new"] body,
+  .devnagari{
+    font-family:var(--font-dev);
   }
 
   [data-contrast="high"]{
@@ -402,7 +409,7 @@
 <!-- TOP UTILITY BAR -->
 <div class="util-bar">
   <div class="util-row">
-    <div class="util-date" id="utilDate" data-i18n="util_date">Portfolio Portal · Shrawan 09, 2083 B.S.</div>
+    <div class="util-date" id="utilDate" aria-live="off">Portfolio Portal · Shrawan 09, 2083 B.S.</div>
     <div class="util-controls">
       <span class="font-group" role="group" aria-label="Text size">
         <button type="button" id="fontDec" aria-label="Decrease text size">A-</button>
@@ -428,7 +435,7 @@
     <div class="masthead-text">
       <p class="eyebrow" data-i18n="eyebrow">Personal Portfolio · Cybersecurity Professional</p>
       <h1>Er. Ananta Raj Shrestha</h1>
-      <p class="np-sub">Threat Intelligence &amp; Cybersecurity Portfolio · ई.अनन्त राज श्रेष्ठ</p>
+      <p class="np-sub">Threat Intelligence &amp; Cybersecurity Portfolio · अनन्त राज श्रेष्ठ</p>
     </div>
     <div class="masthead-spacer"></div>
     <div class="masthead-tag">M.Sc. Computer Engineering<br>Network &amp; Cyber Security, IOE Pulchowk</div>
@@ -457,7 +464,7 @@
   <div class="wrap">
     <a href="#home" data-i18n="bc_home">Home</a><span class="sep">›</span>
     <a href="#about" data-i18n="bc_portfolio">Portfolio</a><span class="sep">›</span>
-    <span>Ananta Raj Shrestha</span>
+    <span>Er. Ananta Raj Shrestha</span>
   </div>
 </div>
 
@@ -604,7 +611,7 @@
           <div class="card-body">
             <ul class="contact-list">
               <li><b data-i18n="email_label">Email</b><a href="mailto:er@anantarajshrestha.com.np">er@anantarajshrestha.com.np</a></li>
-              <li><b data-i18n="website_label">Website</b><a href="https://anantarajshrestha.com.np" target="_blank" rel="noopener">anantarajshrestha.com.np</a></li>
+              <li><b data-i18n="website_label">Website</b><a href="https://anantarajshrestha.com.np" target="_blank" rel="noopener">https://anantarajshrestha.com.np</a></li>
             </ul>
           </div>
         </div>
@@ -819,7 +826,10 @@
         footer_portal_desc: "A cybersecurity portfolio for Er. Ananta Raj Shrestha — threat intelligence, ethical hacking, and security research.",
         footer_links_head: "Important Links",
         footer_contact_head: "Contact",
-        footer_bottom: "Last Updated: 2083‑04‑09 (B.S.) · © 2026 Er. Ananta Raj Shrestha. All Rights Reserved."
+        footer_bottom: "Last Updated: 2083‑04‑09 (B.S.) · © 2026 Er. Ananta Raj Shrestha. All Rights Reserved.",
+        clock_prefix: "Portfolio Portal",
+        am_label: "AM",
+        pm_label: "PM"
       },
       ne: {
         util_date: "पोर्टफोलियो पोर्टल · श्रावण ०९, २०८३ वि.सं.",
@@ -883,10 +893,81 @@
         footer_portal_desc: "इं. अनन्त राज श्रेष्ठको साइबर सुरक्षा पोर्टफोलियो — थ्रेट इन्टेलिजेन्स, एथिकल ह्याकिङ र सुरक्षा अनुसन्धान।",
         footer_links_head: "महत्त्वपूर्ण लिङ्कहरू",
         footer_contact_head: "सम्पर्क",
-        footer_bottom: "अन्तिम अद्यावधिक: २०८३‑०४‑०९ (वि.सं.) · © २०२६ इं. अनन्त राज श्रेष्ठ। सर्वाधिकार सुरक्षित।"
+        footer_bottom: "अन्तिम अद्यावधिक: २०८३‑०४‑०९ (वि.सं.) · © २०२६ इं. अनन्त राज श्रेष्ठ। सर्वाधिकार सुरक्षित।",
+        clock_prefix: "पोर्टफोलियो पोर्टल",
+        am_label: "पूर्वाह्न",
+        pm_label: "अपराह्न"
+      },
+      new: {
+        contrast_on: "उच्च कन्ट्रास्ट",
+        contrast_off: "सामान्य कन्ट्रास्ट",
+        dark_on: "डार्क मोड",
+        dark_off: "लाइट मोड",
+        eyebrow: "स्वयंगु पोर्टफोलियो · साइबर सुरक्षा विज्ञ",
+        nav_home: "मू पौ",
+        nav_about: "परिचय",
+        nav_skills: "सिप",
+        nav_certs: "प्रमाणपत्र",
+        nav_contact: "सम्पर्क",
+        bc_home: "मू पौ",
+        bc_portfolio: "पोर्टफोलियो",
+        notice_label: "सार्वजनिक सूचना · पोर्टफोलियो प्रोफाइल",
+        hero_role: "थ्रेट इन्टेलिजेन्स · एथिकल ह्याकिङ · सुरक्षा अनुसन्धान",
+        tag_1: "एम्.एस्सी. नेटवर्क व साइबर सुरक्षा",
+        tag_2: "आईओई पुल्चोक",
+        tag_3: "ट्राईह्याकमी अभ्यासकर्मी",
+        hero_para: "एथिकल ह्याकिङ, जोखिम मूल्याङ्कन व थ्रेट इन्टेलिजेन्सय् केन्द्रित छम्ह साइबर सुरक्षा उत्साही खः। उद्देश्य थ्व खः — कमजोरी शोषण मजुइकं पहिचान याइगु व वास्तविक परिस्थितिइ टिकिगु सुरक्षा संरचना सिर्जना यायेत संस्थापिनिगु निंतिं सहयोग यायेगु। ट्राईह्याकमीइ नित्तिनासा ल्याब अभ्यास याइ व प्रमाणपत्र क्रेड्लीमार्फत प्रमाणित यानातःगु दु।",
+        btn_certs: "प्रमाणपत्र स्वयेगु",
+        btn_contact: "सम्पर्क विवरण",
+        about_title: "परिचय",
+        about_summary_head: "प्रोफाइल सारांश",
+        about_p1: "इं. अनन्त राज श्रेष्ठं आईओई पुल्चोकबाट नेटवर्क व साइबर सुरक्षाय् विशेषज्ञतासहित कम्प्युटर इन्जिनियरिङय् एम्.एस्सी. यानादु। थःगु ज्या एथिकल ह्याकिङ, जोखिम मूल्याङ्कन व थ्रेट इन्टेलिजेन्सय् केन्द्रित दु, उद्देश्य कमजोरी शोषण मजुइकं पहिचान याना संस्थापिनिगु डिजिटल सुरक्षा बलियु यायेगु खः।",
+        about_p2: "थः ट्राईह्याकमीइ नित्तिनासा साइबर सुरक्षा ल्याब अभ्यास याइ व परिवर्तनशील खतराया कथं तालमेल तयेत क्रेड्लीमार्फत उद्योग-मान्यताप्राप्त प्रमाणपत्र लगातार हासिल याना च्वनादु।",
+        about_particulars_head: "विवरण",
+        p_name: "पूरा नां",
+        p_qual: "योग्यता",
+        p_inst: "संस्था",
+        p_focus: "केन्द्रित क्षेत्र",
+        p_status: "स्थिति",
+        p_status_val: "सक्रिय — ट्राईह्याकमी व क्रेड्ली",
+        skills_title: "सिप",
+        th_skill: "सिप क्षेत्र",
+        th_prof: "निपुणता",
+        th_level: "स्तर",
+        sk_1: "जोखिम मूल्याङ्कन",
+        sk_2: "पेनिट्रेसन टेस्टिङ",
+        sk_3: "थ्रेट इन्टेलिजेन्स",
+        sk_4: "नेटवर्क सुरक्षा",
+        sk_5: "डिजिटल फोरेन्सिक्स",
+        sk_6: "जेनेरेटिभ एआई",
+        certs_title: "प्रमाणपत्र",
+        ccna_title: "प्रोफेसनल CCNA तालिम",
+        ccna_issuer: "ब्रोडवे इन्फोसिसं ब्यूगु",
+        ccna_desc: "सिस्को CCNA पाठ्यक्रमसं मिल्दो राउटिङ, स्विचिङ व नेटवर्क सुरक्षाया आधारभूत विषय समेटातःगु व्यावसायिक तहया तालिम।",
+        ccna_stamp: "सम्पन्न",
+        contact_title: "सम्पर्क",
+        contact_details_head: "सम्पर्क विवरण",
+        email_label: "इमेल",
+        website_label: "वेबसाइट",
+        office_hours_head: "कार्यालय ई (डेमो)",
+        hours_label: "आइतवार–शुक्रवार",
+        hours_val: "बिहन १०:०० – साँझ ५:०० (नेपाली ई)",
+        response_label: "प्रतिक्रिया",
+        response_val: "२ ज्याया न्हिनं",
+        btn_home_site: "गृह वेबसाइटय् वनेगु",
+        footer_portal_head: "पोर्टफोलियो पोर्टल",
+        footer_portal_desc: "इं. अनन्त राज श्रेष्ठयागु साइबर सुरक्षा पोर्टफोलियो — थ्रेट इन्टेलिजेन्स, एथिकल ह्याकिङ व सुरक्षा अनुसन्धान।",
+        footer_links_head: "महत्त्वपूर्ण लिंक",
+        footer_contact_head: "सम्पर्क",
+        footer_bottom: "थ्यंकः अद्यावधिक: २०८३‑०४‑०९ (वि.सं.) · © २०२६ इं. अनन्त राज श्रेष्ठ। सकल अधिकार सुरक्षित।",
+        clock_prefix: "पोर्टफोलियो पोर्टल",
+        am_label: "पूर्वाह्न",
+        pm_label: "अपराह्न"
       }
     };
 
+    const langOrder = ['en', 'ne', 'new'];
+    const langButtonLabel = { en: 'English', ne: 'नेपाली', new: 'नेपाल भाषा' };
     let currentLang = 'en';
     const htmlRoot = document.getElementById('htmlRoot');
     const contrastBtn = document.getElementById('contrastToggle');
@@ -910,10 +991,13 @@
 
     langBtn.addEventListener('click', function(e){
       e.preventDefault();
-      currentLang = currentLang === 'en' ? 'ne' : 'en';
-      htmlRoot.setAttribute('lang', currentLang === 'en' ? 'en' : 'ne');
+      const idx = langOrder.indexOf(currentLang);
+      currentLang = langOrder[(idx + 1) % langOrder.length];
+      htmlRoot.setAttribute('lang', currentLang);
       applyTexts(currentLang);
-      langBtn.textContent = currentLang === 'en' ? 'नेपाली' : 'English';
+      updateClock();
+      const nextIdx = langOrder.indexOf(currentLang);
+      langBtn.textContent = langButtonLabel[langOrder[(nextIdx + 1) % langOrder.length]];
     });
 
     contrastBtn.addEventListener('click', function(){
@@ -926,6 +1010,84 @@
       body.setAttribute('data-theme', isDark ? 'light' : 'dark');
       applyTexts(currentLang);
     });
+
+    /* ---------- Live Nepali (Bikram Sambat) date & time, Kathmandu time ----------
+       Self-contained AD->BS conversion (no external script/CDN required, so this
+       keeps working even offline, behind an ad-blocker, or opened as a local file). */
+    const utilDateEl = document.getElementById('utilDate');
+    const enDigits = ['0','1','2','3','4','5','6','7','8','9'];
+    const npDigits = ['०','१','२','३','४','५','६','७','८','९'];
+    function toDevanagariDigits(str){
+      return String(str).replace(/[0-9]/g, d => npDigits[enDigits.indexOf(d)]);
+    }
+
+    // Verified month-day-counts for BS years covering the current era.
+    // Baisakh=0 ... Chaitra=11. Source: cross-checked official BS/AD conversion tables.
+    const BS_MONTH_DATA = {
+      2082: [31,31,32,31,31,31,30,29,30,29,30,30],
+      2083: [31,31,32,31,31,30,30,29,30,30,30,30],
+      2084: [31,31,32,31,31,30,30,29,30,30,30,30]
+    };
+    const BS_EPOCH_AD = new Date(2025, 3, 14); // Baisakh 1, 2082 BS = April 14, 2025
+    const BS_EPOCH_YEAR = 2082;
+
+    const BS_MONTHS_EN = ['Baisakh','Jestha','Asar','Shrawan','Bhadra','Asoj','Kartik','Mangsir','Poush','Magh','Falgun','Chaitra'];
+    const BS_MONTHS_NP = ['बैशाख','जेठ','असार','श्रावण','भाद्र','आश्विन','कार्तिक','मंसिर','पौष','माघ','फाल्गुन','चैत्र'];
+    const WEEKDAYS_EN = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const WEEKDAYS_NP = ['आइतबार','सोमबार','मंगलबार','बुधबार','बिहिबार','शुक्रबार','शनिबार'];
+
+    function adToBs(adDate){
+      const d = new Date(adDate.getFullYear(), adDate.getMonth(), adDate.getDate());
+      let diffDays = Math.round((d - BS_EPOCH_AD) / 86400000);
+      if (diffDays < 0) return null; // outside supported range
+      let bsYear = BS_EPOCH_YEAR, bsMonth = 0;
+      while (BS_MONTH_DATA[bsYear]){
+        const months = BS_MONTH_DATA[bsYear];
+        for (let m = bsMonth; m < 12; m++){
+          const len = months[m];
+          if (diffDays < len) return { year: bsYear, month: m, date: diffDays + 1 };
+          diffDays -= len;
+        }
+        bsYear++; bsMonth = 0;
+      }
+      return null; // outside supported range
+    }
+
+    function updateClock(){
+      const dict = translations[currentLang];
+      const nowAD = new Date();
+      const bs = adToBs(nowAD);
+      const weekday = nowAD.getDay();
+
+      // Kathmandu wall-clock time (works even if the visitor is elsewhere)
+      const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Asia/Kathmandu',
+        hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true
+      }).formatToParts(nowAD);
+      const get = t => parts.find(p => p.type === t).value;
+      let hh = get('hour'), mm = get('minute'), ss = get('second');
+      const isPM = get('dayPeriod').toUpperCase().indexOf('PM') !== -1;
+
+      let dateStr, timeStr;
+      if (!bs){
+        dateStr = '';
+      } else if (currentLang === 'en'){
+        dateStr = BS_MONTHS_EN[bs.month] + ' ' + String(bs.date).padStart(2,'0') + ', ' + bs.year + ' B.S.';
+      } else {
+        dateStr = WEEKDAYS_NP[weekday] + ', ' + BS_MONTHS_NP[bs.month] + ' ' + toDevanagariDigits(String(bs.date).padStart(2,'0')) + ', ' + toDevanagariDigits(bs.year) + ' वि.सं.';
+      }
+
+      if (currentLang === 'en'){
+        timeStr = hh + ':' + mm + ':' + ss + ' ' + (isPM ? dict.pm_label : dict.am_label) + ' NPT';
+      } else {
+        timeStr = toDevanagariDigits(hh + ':' + mm + ':' + ss) + ' ' + (isPM ? dict.pm_label : dict.am_label) + ' (नेपाली समय)';
+      }
+
+      utilDateEl.textContent = dict.clock_prefix + (dateStr ? ' · ' + dateStr : '') + ' · ' + timeStr;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
   })();
 </script>
 
