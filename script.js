@@ -114,3 +114,9 @@ const all = document.body.getElementsByTagName("*");
 for (var i = 0;  i < all.length; ++i) {
   all[i].onclick = (event) => event.stopPropagation();
 }
+<script
+  src="https://cdn.jsdelivr.net/gh/clashrelated/nepal-relief-banner@1.0.2/banner.min.js"
+  integrity="sha384-zsV61Tmn6kfxMnauiuGMOgbTqBC6qhHBy/x0ne2M0sSSoK3q+xTlPs3ZMC8W/SUp"
+  crossorigin="anonymous"
+  data-position="sticky"
+></script>
