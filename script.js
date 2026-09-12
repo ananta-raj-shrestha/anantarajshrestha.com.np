@@ -1,4 +1,8 @@
-
+// ---- Bilingual (EN/NP) content ----
+// Longer blocks of text (the bio paragraph and the typed taglines) live here
+// instead of as HTML attributes. Short strings are handled inline in the
+// markup via data-en / data-np attributes on elements with class "i18n-text"
+// (and data-en-placeholder / data-np-placeholder for form fields).
 const translations = {
     en: {
         typing: ["Computer Engineer at the Government of Nepal","Network and Cyber Security Engineer", "Programmer", "ICT Officer", "Computer Engineering Instructor","Writer"],
@@ -20,7 +24,7 @@ Er. Shrestha is fluent in Nepali and English and has a keen interest in policy-d
         typing2: ["नेपाल सरकारमा कम्प्युटर इन्जिनियर","नेटवर्क तथा साइबर सुरक्षा इन्जिनियर","प्रोग्रामर","आईसीटी अधिकृत","कम्प्युटर इन्जिनियरिङ प्रशिक्षक","लेखक"],
         aboutPara: `ईन्जि. अनन्त राज श्रेष्ठ, एक गतिशील र दूरदर्शी सरकारी कर्मचारी, नेपालको निजामती सेवामा सन् २०८० सालमा कम्प्युटर इन्जिनियरको रूपमा प्रवेश गर्नुभयो। सूचना तथा सञ्चार प्रविधिमा बलियो शैक्षिक र प्राविधिक पृष्ठभूमि सहित, उहाँले नेपाल सरकारको डिजिटल रूपान्तरणमा, विशेष गरी साइबर सुरक्षा, नेटवर्क पूर्वाधार र डिजिटल शासनका क्षेत्रहरूमा योगदान पुर्‍याइरहनुभएको छ।
 
-हाल इन्जिनियरिङ अध्ययन संस्थान, पुल्चोक क्याम्पसबाट नेटवर्क तथा साइबर सुरक्षामा विशेषज्ञता सहित एम.एस्सी. कम्प्युटर इन्जिनियरिङमा विशिष्ट श्रेणीमा उतिर्ण, ईन्जि. श्रेष्ठ राष्ट्रिय साइबर सुरक्षा क्षमता सुदृढ गर्न गहिरो रूपमा प्रतिबद्ध हुनुहुन्छ। उहाँको शैक्षिक अध्ययनले उहाँको आधिकारिक जिम्मेवारीहरूलाई परिपूरक गर्दछ, जसले गर्दा उहाँले नवीनतम ज्ञानलाई सरकारी कार्यसञ्चालनमा व्यावहारिक प्रयोगसँग जोड्न सक्नुहुन्छ।
+हाल इन्जिनियरिङ अध्ययन संस्थान, पुल्चोक क्याम्पसबाट नेटवर्क तथा साइबर सुरक्षामा विशेषज्ञता सहित एम.एस्सी. कम्प्युटर इन्जिनियरिङ अध्ययनरत, ईन्जि. श्रेष्ठ राष्ट्रिय साइबर सुरक्षा क्षमता सुदृढ गर्न गहिरो रूपमा प्रतिबद्ध हुनुहुन्छ। उहाँको शैक्षिक अध्ययनले उहाँको आधिकारिक जिम्मेवारीहरूलाई परिपूरक गर्दछ, जसले गर्दा उहाँले नवीनतम ज्ञानलाई सरकारी कार्यसञ्चालनमा व्यावहारिक प्रयोगसँग जोड्न सक्नुहुन्छ।
 
 ईन्जि. श्रेष्ठका मुख्य दक्षताहरूमा सुरक्षित नेटवर्क डिजाइन, घटना प्रतिकार्य, सार्वजनिक क्षेत्रको डिजिटाइजेसन, डाटा गोपनीयता, र अन्तर्राष्ट्रिय मापदण्डअनुरूप सुरक्षा नीतिहरूको कार्यान्वयन समावेश छन्। सुरक्षित डिजिटल रूपान्तरणप्रतिको उहाँको समर्पण सरकारी निकायहरूलाई सुरक्षित इमेल प्रणाली, सार्वजनिक निकायहरूको डोमेन दर्ता, र सुरक्षित सूचना व्यवस्थापन अभ्यासमा सहयोग पुर्‍याउने कार्यबाट स्पष्ट हुन्छ।
 
@@ -72,15 +76,32 @@ function initTyped(lang){
 }
 
 $(document).ready(function(){
-    // set up the page in the saved (or default) language before anything else runs
+    // ---- IMPORTANT: all handler bindings below run FIRST, before any
+    // call to third-party plugins like Typed.js or Owl Carousel.
+    //
+    // FIX (root cause of "lang switch / menu not working"): this used to
+    // call initTyped(currentLang) here, ahead of the click-handler
+    // bindings, in the same ready() callback. initTyped() calls
+    // `new Typed(...)`, which depends on the typed.js CDN script having
+    // loaded. If that CDN request is slow, blocked by an ad-blocker, or
+    // fails on a flaky connection, `Typed` is undefined, `new Typed(...)`
+    // throws, and — because it's a single synchronous callback — every
+    // line AFTER that throw silently never runs. That included the
+    // lang-switch click handler, the sticky-navbar scroll listener, the
+    // hamburger toggle, and the carousel init, even though none of them
+    // have anything to do with Typed.js. Binding everything critical
+    // first, then initializing the "nice to have" plugins in try/catch
+    // blocks afterward, means one flaky CDN can no longer take out the
+    // rest of the page's interactivity.
+
+    // set up translated text immediately (no external dependency)
     applyTranslations(currentLang);
-    initTyped(currentLang);
 
     $('#lang-switch').on('click', function(){
         currentLang = currentLang === 'en' ? 'np' : 'en';
         localStorage.setItem('site-lang', currentLang);
         applyTranslations(currentLang);
-        initTyped(currentLang);
+        safeInitTyped(currentLang);
     });
     // keyboard support since #lang-switch is a div acting as a button
     $('#lang-switch').on('keydown', function(e){
@@ -119,6 +140,9 @@ $(document).ready(function(){
         // close the mobile menu after a link is tapped
         $('.navbar .menu').removeClass("active");
         $('#menu-toggle-btn i').removeClass("active");
+        // also collapse any open mobile submenu
+        $('.dropdown').removeClass("open");
+        $('.dropdown .dropbtn').attr('aria-expanded', 'false');
     });
 
     // toggle menu/navbar script
@@ -131,31 +155,88 @@ $(document).ready(function(){
     $('#menu-toggle-btn').click(function(){
         $('.navbar .menu').toggleClass("active");
         $(this).find('i').toggleClass("active");
+        // closing the hamburger should also collapse any open submenu
+        $('.dropdown').removeClass("open");
+        $('.dropdown .dropbtn').attr('aria-expanded', 'false');
     });
 
-    // owl carousel script
-    $('.carousel').owlCarousel({
-        margin: 20,
-        loop: true,
-        autoplay: true,
-        autoplayTimeOut: 6000,
-        autoplayHoverPause: true,
-        responsive: {
-            0:{
-                items: 1,
-                nav: false
-            },
-            2000:{
-                items: 2,
-                nav: false
-            },
-            4000:{
-                items: 3,
-                nav: false
-            }
+    // ---- Mobile/tablet submenu (the "Vivid" dropdown) ----
+    // FIX: the dropdown-content only ever showed on ":hover", which
+    // touchscreens (phones/tablets) don't reliably trigger, so the
+    // Services/Blog/etc. submenu was unreachable on mobile. This adds a
+    // tap-to-open toggle that only takes over on touch/narrow screens,
+    // leaving the existing desktop hover behavior untouched.
+    function isMobileNav(){
+        return window.matchMedia('(hover: none), (max-width: 947px)').matches;
+    }
+    $('.dropdown > .dropbtn').on('click', function(e){
+        if (!isMobileNav()) return; // let desktop keep its hover behavior
+        e.preventDefault();
+        e.stopPropagation();
+        const $dropdown = $(this).closest('.dropdown');
+        const nowOpen = !$dropdown.hasClass('open');
+        $('.dropdown').not($dropdown).removeClass('open')
+            .find('.dropbtn').attr('aria-expanded', 'false');
+        $dropdown.toggleClass('open', nowOpen);
+        $(this).attr('aria-expanded', nowOpen ? 'true' : 'false');
+    });
+    // tapping outside an open submenu closes it
+    $(document).on('click', function(e){
+        if (!$(e.target).closest('.dropdown').length){
+            $('.dropdown').removeClass('open');
+            $('.dropdown .dropbtn').attr('aria-expanded', 'false');
         }
     });
+
+    // ---- Third-party plugin init, isolated so a CDN failure can't ----
+    // ---- take out the handlers registered above ----
+    safeInitTyped(currentLang);
+
+    try {
+        // owl carousel script
+        $('.carousel').owlCarousel({
+            margin: 20,
+            loop: true,
+            autoplay: true,
+            autoplayTimeOut: 6000,
+            autoplayHoverPause: true,
+            responsive: {
+                0:{
+                    items: 1,
+                    nav: false
+                },
+                2000:{
+                    items: 2,
+                    nav: false
+                },
+                4000:{
+                    items: 3,
+                    nav: false
+                }
+            }
+        });
+    } catch (err) {
+        console.error('Owl Carousel failed to initialize (CDN issue?):', err);
+    }
 });
+
+function safeInitTyped(lang){
+    try {
+        if (typeof Typed === 'undefined') {
+            console.warn('Typed.js did not load (CDN blocked/slow); skipping typing animation.');
+            // graceful fallback: show the first phrase as static text
+            const strings = translations[lang] && translations[lang].typing;
+            if (strings && strings.length){
+                $('.typing').text(strings[0]);
+                $('.typing-2').text(strings[0]);
+            }
+            return;
+        }
+        initTyped(lang);
+    } catch (err) {
+        console.error('Typed.js initialization failed:', err);
+    }
+}
 
 document.onkeydown = (e) => {
     if (e.key == 123) {
