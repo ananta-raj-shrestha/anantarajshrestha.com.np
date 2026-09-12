@@ -134,12 +134,12 @@ $(document).ready(function(){
         safeInitTyped(currentLang);
     });
     // keyboard support since #lang-switch is a div acting as a button
-    $('#lang-switch').on('keydown', function(e){
-        if (e.key === 'Enter' || e.key === ' '){
-            e.preventDefault();
-            $(this).trigger('click');
-        }
-    });
+    // $('#lang-switch').on('keydown', function(e){
+    //     if (e.key === 'Enter' || e.key === ' '){
+    //         e.preventDefault();
+    //         $(this).trigger('click');
+    //     }
+    // });
 
     // navbar is always fixed to the top now (see CSS); .sticky just
     // toggles its "scrolled" look (background/shadow etc. from style.css)
