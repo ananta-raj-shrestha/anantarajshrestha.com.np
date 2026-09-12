@@ -25,12 +25,21 @@ $(document).ready(function(){
     $('.navbar .menu li a').click(function(){
         // applying again smooth scroll on menu items click
         $('html').css("scrollBehavior", "smooth");
+        // close the mobile menu after a link is tapped
+        $('.navbar .menu').removeClass("active");
+        $('#menu-toggle-btn i').removeClass("active");
     });
 
     // toggle menu/navbar script
-    $('.menu-btn').click(function(){
+    // FIX: previously bound to ".menu-btn", a class shared with every
+    // nav link (<a class="menu-btn">Home</a> etc.) and the dropdown's
+    // caret icon. That collision meant tapping a link also re-fired the
+    // hamburger toggle, and the icon-toggle selector grabbed unrelated
+    // icons. Scoping this to the button's own id (#menu-toggle-btn)
+    // fixes the mobile tap behavior.
+    $('#menu-toggle-btn').click(function(){
         $('.navbar .menu').toggleClass("active");
-        $('.menu-btn i').toggleClass("active");
+        $(this).find('i').toggleClass("active");
     });
 
     // typing text animation script
@@ -90,7 +99,7 @@ document.onkeydown = (e) => {
     }
 };
 // Ripple Effects
-	  document.onclick = () => applyCursorRippleEffect(event);
+document.onclick = (e) => applyCursorRippleEffect(e);
 
 function applyCursorRippleEffect(e) {
    const ripple = document.createElement("div");
@@ -107,11 +116,3 @@ function applyCursorRippleEffect(e) {
    }
   
 }
-
-// extra and optional part:
-
-const all = document.body.getElementsByTagName("*");
-for (var i = 0;  i < all.length; ++i) {
-  all[i].onclick = (event) => event.stopPropagation();
-}
-
