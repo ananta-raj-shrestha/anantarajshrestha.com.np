@@ -248,12 +248,15 @@ img, video, iframe {
 .navbar, .navbar * {
   pointer-events: auto;
 }
-/* offset content so it doesn't hide behind the now-always-fixed banner +
-   navbar; both custom properties are measured live in script.js so this
-   stays correct regardless of the theme's own navbar height or whether
-   the relief banner is present at all. */
+/* offset content so it doesn't hide behind the now-always-fixed relief
+   banner; the navbar itself is NOT included in this offset on purpose —
+   it's designed to float transparently over the hero image at the top
+   of the page (only gaining a solid background once .sticky is added on
+   scroll), so giving it its own space here would just push the hero
+   image down and leave a blank gap behind the navbar instead — exactly
+   the white-gap/invisible-text bug from the last screenshot. */
 body {
-  padding-top: calc(var(--relief-banner-height, 0px) + var(--navbar-height, 70px));
+  padding-top: var(--relief-banner-height, 0px);
 }
 
 /* ---- Unified Nepali (Devanagari) typography ----
@@ -291,7 +294,18 @@ html[lang="ne"] * {
   font-weight: 700;
   letter-spacing: 0.5px;
   color: #fff;
-  background: transparent;
+  /* FIX: this used to be transparent, inheriting whatever the navbar's
+     background happened to be at that moment. The navbar is
+     intentionally transparent when unscrolled (it overlays the hero
+     image), so on a page where something pushes that hero image out of
+     the way (or simply at the very top before the image is behind it),
+     the "EN" side of this switch — styled white to read against a dark
+     backdrop — became invisible against a light one. Giving the pill
+     its own solid dark background means both EN and NP stay legible no
+     matter what's rendered behind the navbar. */
+  background: rgba(8, 20, 40, 0.85);
+  position: relative;
+  z-index: 1;
 }
 .lang-switch:focus-visible {
   outline: 2px solid deepskyblue;
@@ -810,7 +824,7 @@ Er. Shrestha is fluent in Nepali and English and has a keen interest in policy-d
     <!-- footer section start -->
 
     <footer>
-        <span>Made with ❤️ By <a href="https://www.anantarajshrestha.com.np">Er. ANANTA RAJ SHRESTHA</a> | <span class="far fa-copyright"></span> <span id="year"></span> <span class="i18n-text" data-en="All rights reserved." data-np="सर्वाधिकार सुरक्षित।">All rights reserved.</span> | <span class="i18n-text" data-en="Last Updated:" data-np="अन्तिम अद्यावधिक:">Last Updated:</span> <span id="lastUpdated"></span></span>
+        <span>Made with  By <a href="https://www.anantarajshrestha.com.np">Er. ANANTA RAJ SHRESTHA</a> | <span class="far fa-copyright"></span> <span id="year"></span> <span class="i18n-text" data-en="All rights reserved." data-np="सर्वाधिकार सुरक्षित।">All rights reserved.</span> | <span class="i18n-text" data-en="Last Updated:" data-np="अन्तिम अद्यावधिक:">Last Updated:</span> <span id="lastUpdated"></span></span>
     </footer>
 		 <!-- Overlay (optional, darkens the background) -->
     <div id="overlay"></div>
@@ -952,5 +966,6 @@ function closePopuped() {
   crossorigin="anonymous"
   data-position="sticky"
 ></script>
+<script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=DmtdhpS5oDeG176bYSvG-SV4zPS0T3AeSnhGznFC854"></script>
 </body>
 </html>
