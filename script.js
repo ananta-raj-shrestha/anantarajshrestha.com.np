@@ -18,17 +18,17 @@ Er. Shrestha is fluent in Nepali and English and has a keen interest in policy-d
     np: {
         typing: ["नेपाल सरकारमा कम्प्युटर इन्जिनियर","नेटवर्क तथा साइबर सुरक्षा इन्जिनियर","प्रोग्रामर","आईसीटी अधिकृत","कम्प्युटर इन्जिनियरिङ प्रशिक्षक","लेखक"],
         typing2: ["नेपाल सरकारमा कम्प्युटर इन्जिनियर","नेटवर्क तथा साइबर सुरक्षा इन्जिनियर","प्रोग्रामर","आईसीटी अधिकृत","कम्प्युटर इन्जिनियरिङ प्रशिक्षक","लेखक"],
-        aboutPara: `ईन्जि. अनन्त राज श्रेष्ठ, एक गतिशील र दूरदर्शी सरकारी कर्मचारी, नेपालको निजामती सेवामा सन् २०८० सालमा कम्प्युटर इन्जिनियरको रूपमा प्रवेश गर्नुभयो। सूचना तथा सञ्चार प्रविधिमा बलियो शैक्षिक र प्राविधिक पृष्ठभूमि सहित, उहाँले नेपाल सरकारको डिजिटल रूपान्तरणमा, विशेष गरी साइबर सुरक्षा, नेटवर्क पूर्वाधार र डिजिटल शासनका क्षेत्रहरूमा योगदान पुर्‍याइरहनुभएको छ।
+        aboutPara: `ई.अनन्त राज श्रेष्ठ, एक गतिशील र दूरदर्शी सरकारी कर्मचारी, नेपालको निजामती सेवामा सन् २०८० सालमा कम्प्युटर इन्जिनियरको रूपमा प्रवेश गर्नुभयो। सूचना तथा सञ्चार प्रविधिमा बलियो शैक्षिक र प्राविधिक पृष्ठभूमि सहित, उहाँले नेपाल सरकारको डिजिटल रूपान्तरणमा, विशेष गरी साइबर सुरक्षा, नेटवर्क पूर्वाधार र डिजिटल शासनका क्षेत्रहरूमा योगदान पुर्‍याइरहनुभएको छ।
 
-हाल इन्जिनियरिङ अध्ययन संस्थान, पुल्चोक क्याम्पसबाट नेटवर्क तथा साइबर सुरक्षामा विशेषज्ञता सहित एम.एस्सी. कम्प्युटर इन्जिनियरिङ अध्ययनरत, ईन्जि. श्रेष्ठ राष्ट्रिय साइबर सुरक्षा क्षमता सुदृढ गर्न गहिरो रूपमा प्रतिबद्ध हुनुहुन्छ। उहाँको शैक्षिक अध्ययनले उहाँको आधिकारिक जिम्मेवारीहरूलाई परिपूरक गर्दछ, जसले गर्दा उहाँले नवीनतम ज्ञानलाई सरकारी कार्यसञ्चालनमा व्यावहारिक प्रयोगसँग जोड्न सक्नुहुन्छ।
+हाल इन्जिनियरिङ अध्ययन संस्थान, पुल्चोक क्याम्पसबाट नेटवर्क तथा साइबर सुरक्षामा विशेषज्ञता सहित एम.एस्सी. कम्प्युटर इन्जिनियरिङ अध्ययनरत, ई.श्रेष्ठ राष्ट्रिय साइबर सुरक्षा क्षमता सुदृढ गर्न गहिरो रूपमा प्रतिबद्ध हुनुहुन्छ। उहाँको शैक्षिक अध्ययनले उहाँको आधिकारिक जिम्मेवारीहरूलाई परिपूरक गर्दछ, जसले गर्दा उहाँले नवीनतम ज्ञानलाई सरकारी कार्यसञ्चालनमा व्यावहारिक प्रयोगसँग जोड्न सक्नुहुन्छ।
 
-ईन्जि. श्रेष्ठका मुख्य दक्षताहरूमा सुरक्षित नेटवर्क डिजाइन, घटना प्रतिकार्य, सार्वजनिक क्षेत्रको डिजिटाइजेसन, डाटा गोपनीयता, र अन्तर्राष्ट्रिय मापदण्डअनुरूप सुरक्षा नीतिहरूको कार्यान्वयन समावेश छन्। सुरक्षित डिजिटल रूपान्तरणप्रतिको उहाँको समर्पण सरकारी निकायहरूलाई सुरक्षित इमेल प्रणाली, सार्वजनिक निकायहरूको डोमेन दर्ता, र सुरक्षित सूचना व्यवस्थापन अभ्यासमा सहयोग पुर्‍याउने कार्यबाट स्पष्ट हुन्छ।
+ई.श्रेष्ठका मुख्य दक्षताहरूमा सुरक्षित नेटवर्क डिजाइन, घटना प्रतिकार्य, सार्वजनिक क्षेत्रको डिजिटाइजेसन, डाटा गोपनीयता, र अन्तर्राष्ट्रिय मापदण्डअनुरूप सुरक्षा नीतिहरूको कार्यान्वयन समावेश छन्। सुरक्षित डिजिटल रूपान्तरणप्रतिको उहाँको समर्पण सरकारी निकायहरूलाई सुरक्षित इमेल प्रणाली, सार्वजनिक निकायहरूको डोमेन दर्ता, र सुरक्षित सूचना व्यवस्थापन अभ्यासमा सहयोग पुर्‍याउने कार्यबाट स्पष्ट हुन्छ।
 
-आफ्नो आधिकारिक जिम्मेवारीका अतिरिक्त, ईन्जि. श्रेष्ठले निजामती कर्मचारी तथा फराकिलो प्रविधि समुदायमा सचेतना बढाउने उद्देश्यले ब्लग र प्रकाशनहरूमार्फत आफ्नो ज्ञान सक्रिय रूपमा साझा गर्नुहुन्छ। उहाँले "नेपाल सरकारी कर्मचारीहरूका लागि आधिकारिक इमेल प्रयोग मार्गदर्शन" र "नेपालमा निःशुल्क .gov.np डोमेन कसरी लिने" जस्ता व्यावहारिक मार्गदर्शनहरू लेख्नुभएको छ, जुन दुवै नेपाली प्रविधि-शासन क्षेत्रमा व्यापक रूपमा सराहिएका छन्।
+आफ्नो आधिकारिक जिम्मेवारीका अतिरिक्त, ई.श्रेष्ठले निजामती कर्मचारी तथा फराकिलो प्रविधि समुदायमा सचेतना बढाउने उद्देश्यले ब्लग र प्रकाशनहरूमार्फत आफ्नो ज्ञान सक्रिय रूपमा साझा गर्नुहुन्छ। उहाँले "नेपाल सरकारी कर्मचारीहरूका लागि आधिकारिक इमेल प्रयोग मार्गदर्शन" र "नेपालमा निःशुल्क .gov.np डोमेन कसरी लिने" जस्ता व्यावहारिक मार्गदर्शनहरू लेख्नुभएको छ, जुन दुवै नेपाली प्रविधि-शासन क्षेत्रमा व्यापक रूपमा सराहिएका छन्।
 
-उहाँले डिजिटल रूपमा सशक्त र साइबर-सुरक्षित नेपालको परिकल्पना गर्नुहुन्छ, जहाँ सार्वजनिक सेवा प्रवाह प्रभावकारी, समावेशी, र उदीयमान डिजिटल खतराहरूविरुद्ध लचिलो होस्। प्राविधिक दक्षता र सार्वजनिक सेवाप्रतिको लगावको संयोजनसहित, ईन्जि. श्रेष्ठ डिजिटल सार्वभौमिकता र विश्वसनीय सार्वजनिक पूर्वाधारतर्फको यात्रामा नेपाल सरकारका लागि एक मूल्यवान सम्पत्ति बनिरहनुभएको छ।
+उहाँले डिजिटल रूपमा सशक्त र साइबर-सुरक्षित नेपालको परिकल्पना गर्नुहुन्छ, जहाँ सार्वजनिक सेवा प्रवाह प्रभावकारी, समावेशी, र उदीयमान डिजिटल खतराहरूविरुद्ध लचिलो होस्। प्राविधिक दक्षता र सार्वजनिक सेवाप्रतिको लगावको संयोजनसहित, ई.श्रेष्ठ डिजिटल सार्वभौमिकता र विश्वसनीय सार्वजनिक पूर्वाधारतर्फको यात्रामा नेपाल सरकारका लागि एक मूल्यवान सम्पत्ति बनिरहनुभएको छ।
 
-ईन्जि. श्रेष्ठ नेपाली र अङ्ग्रेजी भाषामा प्रवीण हुनुहुन्छ र नीति-संचालित प्रविधि, खुला-स्रोत नवप्रवर्तन, र राष्ट्रिय साइबर सुरक्षा संरचनामा गहिरो रुचि राख्नुहुन्छ। उहाँको व्यावसायिक कार्य इमान्दारिता, शुद्धता, र डिजिटल रूपमा सशक्त राष्ट्रको दृष्टिकोणद्वारा निर्देशित छ।`
+ई.श्रेष्ठ नेपाली र अङ्ग्रेजी भाषामा प्रवीण हुनुहुन्छ र नीति-संचालित प्रविधि, खुला-स्रोत नवप्रवर्तन, र राष्ट्रिय साइबर सुरक्षा संरचनामा गहिरो रुचि राख्नुहुन्छ। उहाँको व्यावसायिक कार्य इमान्दारिता, शुद्धता, र डिजिटल रूपमा सशक्त राष्ट्रको दृष्टिकोणद्वारा निर्देशित छ।`
     }
 };
 
@@ -71,64 +71,39 @@ function initTyped(lang){
     });
 }
 
-// ---- Keep the (now always-fixed) navbar's real height in sync so the
-// CSS padding-top offset in the <head> <style> block never falls out of
-// sync with the theme's actual navbar size, e.g. if it changes height on
-// the .sticky state or at different breakpoints. Also accounts for the
-// flood-relief banner's height once it's attached above the navbar (see
-// attachReliefBannerAboveNavbar below), so the two always stack cleanly
-// with no gap and no content hidden underneath either of them. ----
+// ---- Keep the header offsets in sync with whatever is actually fixed
+// at the top of the viewport ----
+// The flood-relief banner script controls its own markup and position;
+// rather than guessing its selector (fragile, and broke last time), this
+// scans the live page for ANY element other than the navbar that's
+// pinned at the very top with position:fixed/sticky, and uses its real
+// rendered height. This works no matter how that script renders itself,
+// and never touches its DOM node (so it can't interfere with whatever
+// that script's own code expects, e.g. its close button).
 function syncHeaderOffsets(){
     const navbar = document.querySelector('.navbar');
-    const banner = document.querySelector('[data-ars-header-banner="true"]');
-    const bannerHeight = banner ? banner.offsetHeight : 0;
-    document.documentElement.style.setProperty('--relief-banner-height', bannerHeight + 'px');
-    if (navbar) {
-        document.documentElement.style.setProperty('--navbar-height', navbar.offsetHeight + 'px');
-    }
-}
-
-// ---- Attach the flood-relief banner directly above the navbar ----
-// The banner script is loaded at the very end of <body> with
-// data-position="sticky" and injects its own element; it doesn't
-// document a container/selector we can target directly. This watches
-// for whatever new top-level element it adds to <body>, moves it to be
-// the very first element on the page (above the navbar), pins it fixed
-// to the very top, and marks it so syncHeaderOffsets() can measure it.
-// The navbar then sits fixed directly beneath it (see CSS), so the two
-// move and stick together as one header unit on scroll.
-function attachReliefBannerAboveNavbar(){
-    const navbar = document.querySelector('.navbar');
     if (!navbar) return;
-    const alreadyAttached = document.querySelector('[data-ars-header-banner="true"]');
-    if (alreadyAttached) { syncHeaderOffsets(); return; }
 
-    const ignoreTags = new Set(['SCRIPT','STYLE','NAV','FOOTER','SECTION','H1','I','LINK','META']);
-    const knownIds = new Set(['preloader','overlay','popup','stars-container']);
-    const candidates = Array.from(document.body.children).filter(function(el){
-        if (ignoreTags.has(el.tagName)) return false;
-        if (knownIds.has(el.id)) return false;
-        if (el === navbar || navbar.contains(el)) return false;
-        // heuristic: relief-style banners are short full-width bars with
-        // a call-to-action link in them, not full page sections
-        return el.offsetHeight > 0 && el.offsetHeight < 200 && el.querySelector('a');
+    // measure with the navbar pinned at 0 so it doesn't measure itself
+    const prevTop = navbar.style.top;
+    navbar.style.top = '0px';
+
+    let bannerBottom = 0;
+    document.body.querySelectorAll('*').forEach(function(el){
+        if (el === navbar || navbar.contains(el)) return;
+        const cs = window.getComputedStyle(el);
+        if (cs.position !== 'fixed' && cs.position !== 'sticky') return;
+        if (el.offsetHeight === 0 || el.offsetHeight > 300) return; // skip full sections
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 5 && rect.bottom > bannerBottom) {
+            bannerBottom = rect.bottom;
+        }
     });
 
-    const banner = candidates[0];
-    if (banner) {
-        banner.setAttribute('data-ars-header-banner', 'true');
-        banner.style.position = 'fixed';
-        banner.style.top = '0';
-        banner.style.left = '0';
-        banner.style.width = '100%';
-        banner.style.zIndex = '2147483001'; // sits just above the navbar
-        document.body.insertBefore(banner, document.body.firstChild);
-    }
-    syncHeaderOffsets();
+    navbar.style.top = prevTop; // restore before applying the real value
+    document.documentElement.style.setProperty('--relief-banner-height', Math.max(0, Math.round(bannerBottom)) + 'px');
+    document.documentElement.style.setProperty('--navbar-height', navbar.offsetHeight + 'px');
 }
-// the banner script can render asynchronously, so keep watching for it
-const reliefBannerObserver = new MutationObserver(attachReliefBannerAboveNavbar);
-reliefBannerObserver.observe(document.body, { childList: true });
 
 $(document).ready(function(){
     // ---- IMPORTANT: all handler bindings below run FIRST, before any
@@ -168,9 +143,14 @@ $(document).ready(function(){
 
     // navbar is always fixed to the top now (see CSS); .sticky just
     // toggles its "scrolled" look (background/shadow etc. from style.css)
-    attachReliefBannerAboveNavbar();
     syncHeaderOffsets();
     $(window).on('resize', syncHeaderOffsets);
+    // the relief banner script can render asynchronously (after a fetch,
+    // image load, etc.), so keep re-measuring for a few seconds after
+    // load in case it appears late, plus watch for any further DOM
+    // changes near the top of the page
+    [300, 800, 1500, 3000].forEach(function(delay){ setTimeout(syncHeaderOffsets, delay); });
+    new MutationObserver(function(){ syncHeaderOffsets(); }).observe(document.body, { childList: true, subtree: false });
 
     $(window).scroll(function(){
         // sticky navbar on scroll script
