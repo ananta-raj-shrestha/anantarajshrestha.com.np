@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
         
@@ -238,7 +237,11 @@
         
                 <li><a href="#contact" class="menu-btn">Contact</a></li>
             </ul>
-            <div class="menu-btn">
+            <!-- FIX: added a unique id here. This element previously shared the
+                 "menu-btn" class with every nav link above, so script.js could
+                 not reliably target just the hamburger icon on mobile. The
+                 class is kept as-is so any existing style.css rules still apply. -->
+            <div class="menu-btn" id="menu-toggle-btn">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
@@ -272,7 +275,7 @@ Er. Ananta Raj Shrestha, a dynamic and forward-looking public servant, joined th
 
 Currently pursuing a Master of Science in Computer Engineering (specialization in Network and Cyber Security) from the Institute of Engineering, Pulchowk Campus, Er. Shrestha is deeply committed to strengthening national cyber resilience. His academic pursuits complement his official responsibilities, allowing him to integrate cutting-edge knowledge with real-world applications in government operations.
 
-Er. Shrestha’s core competencies include secure network design, incident response, public sector digitization, data privacy, and the implementation of security policies aligned with international standards. His dedication to secure digital transformation has been evident through his work in supporting government entities with secure email systems, domain registration for public agencies, and secure information handling practices.
+Er. Shrestha's core competencies include secure network design, incident response, public sector digitization, data privacy, and the implementation of security policies aligned with international standards. His dedication to secure digital transformation has been evident through his work in supporting government entities with secure email systems, domain registration for public agencies, and secure information handling practices.
 
 In addition to his official responsibilities, Er. Shrestha actively shares his knowledge through blogs and publications aimed at raising awareness among civil servants and the broader tech community. He has written practical guides such as "Official Email Usage Guide for Nepal Government Employees" and "How to Get a Free .gov.np Domain in Nepal," both of which have been widely appreciated in the Nepali tech governance space.
 
@@ -525,15 +528,6 @@ Er. Shrestha is fluent in Nepali and English and has a keen interest in policy-d
                             </div>
                         
                     </div>
- <!--                    <br><br><br><br><br>
-                    <div class="row">
-                        
-                            <div class="info box">
-                             
-                                <div class="head text">   <i class="fa fa-briefcase"></i>  Science Teacher(2017 May - 2017 Aug)</div>
-                                <p>I had taught science for students of class 6 to 8 level in Shree Jaya Nepal Secondary School after my +2 during gap of +2 and B.E.</p></div>
-                        
-                    </div> -->
                     <br><br><br><br><br>
                     <div class="row">
                         
