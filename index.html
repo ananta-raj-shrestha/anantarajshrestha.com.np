@@ -275,7 +275,7 @@ html[lang="ne"] {
   --np-font: 'Mukta', 'Noto Sans Devanagari', 'Arial Unicode MS', sans-serif;
 }
 html[lang="ne"] body,
-html[lang="ne"] * {
+html[lang="ne"] *:not(.fa):not(.fas):not(.far):not(.fab):not(.fal):not([class*="fa-"]) {
   font-family: var(--np-font) !important;
 }
 
@@ -966,6 +966,5 @@ function closePopuped() {
   crossorigin="anonymous"
   data-position="sticky"
 ></script>
-
 </body>
 </html>
