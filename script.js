@@ -1,8 +1,4 @@
-// ---- Bilingual (EN/NP) content ----
-// Longer blocks of text (the bio paragraph and the typed taglines) live here
-// instead of as HTML attributes. Short strings are handled inline in the
-// markup via data-en / data-np attributes on elements with class "i18n-text"
-// (and data-en-placeholder / data-np-placeholder for form fields).
+
 const translations = {
     en: {
         typing: ["Computer Engineer at the Government of Nepal","Network and Cyber Security Engineer", "Programmer", "ICT Officer", "Computer Engineering Instructor","Writer"],
@@ -78,13 +74,61 @@ function initTyped(lang){
 // ---- Keep the (now always-fixed) navbar's real height in sync so the
 // CSS padding-top offset in the <head> <style> block never falls out of
 // sync with the theme's actual navbar size, e.g. if it changes height on
-// the .sticky state or at different breakpoints. ----
-function syncNavbarHeightVar(){
+// the .sticky state or at different breakpoints. Also accounts for the
+// flood-relief banner's height once it's attached above the navbar (see
+// attachReliefBannerAboveNavbar below), so the two always stack cleanly
+// with no gap and no content hidden underneath either of them. ----
+function syncHeaderOffsets(){
     const navbar = document.querySelector('.navbar');
+    const banner = document.querySelector('[data-ars-header-banner="true"]');
+    const bannerHeight = banner ? banner.offsetHeight : 0;
+    document.documentElement.style.setProperty('--relief-banner-height', bannerHeight + 'px');
     if (navbar) {
         document.documentElement.style.setProperty('--navbar-height', navbar.offsetHeight + 'px');
     }
 }
+
+// ---- Attach the flood-relief banner directly above the navbar ----
+// The banner script is loaded at the very end of <body> with
+// data-position="sticky" and injects its own element; it doesn't
+// document a container/selector we can target directly. This watches
+// for whatever new top-level element it adds to <body>, moves it to be
+// the very first element on the page (above the navbar), pins it fixed
+// to the very top, and marks it so syncHeaderOffsets() can measure it.
+// The navbar then sits fixed directly beneath it (see CSS), so the two
+// move and stick together as one header unit on scroll.
+function attachReliefBannerAboveNavbar(){
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+    const alreadyAttached = document.querySelector('[data-ars-header-banner="true"]');
+    if (alreadyAttached) { syncHeaderOffsets(); return; }
+
+    const ignoreTags = new Set(['SCRIPT','STYLE','NAV','FOOTER','SECTION','H1','I','LINK','META']);
+    const knownIds = new Set(['preloader','overlay','popup','stars-container']);
+    const candidates = Array.from(document.body.children).filter(function(el){
+        if (ignoreTags.has(el.tagName)) return false;
+        if (knownIds.has(el.id)) return false;
+        if (el === navbar || navbar.contains(el)) return false;
+        // heuristic: relief-style banners are short full-width bars with
+        // a call-to-action link in them, not full page sections
+        return el.offsetHeight > 0 && el.offsetHeight < 200 && el.querySelector('a');
+    });
+
+    const banner = candidates[0];
+    if (banner) {
+        banner.setAttribute('data-ars-header-banner', 'true');
+        banner.style.position = 'fixed';
+        banner.style.top = '0';
+        banner.style.left = '0';
+        banner.style.width = '100%';
+        banner.style.zIndex = '2147483001'; // sits just above the navbar
+        document.body.insertBefore(banner, document.body.firstChild);
+    }
+    syncHeaderOffsets();
+}
+// the banner script can render asynchronously, so keep watching for it
+const reliefBannerObserver = new MutationObserver(attachReliefBannerAboveNavbar);
+reliefBannerObserver.observe(document.body, { childList: true });
 
 $(document).ready(function(){
     // ---- IMPORTANT: all handler bindings below run FIRST, before any
@@ -124,8 +168,9 @@ $(document).ready(function(){
 
     // navbar is always fixed to the top now (see CSS); .sticky just
     // toggles its "scrolled" look (background/shadow etc. from style.css)
-    syncNavbarHeightVar();
-    $(window).on('resize', syncNavbarHeightVar);
+    attachReliefBannerAboveNavbar();
+    syncHeaderOffsets();
+    $(window).on('resize', syncHeaderOffsets);
 
     $(window).scroll(function(){
         // sticky navbar on scroll script
@@ -134,7 +179,7 @@ $(document).ready(function(){
         }else{
             $('.navbar').removeClass("sticky");
         }
-        syncNavbarHeightVar();
+        syncHeaderOffsets();
         
         // scroll-up button show/hide script
         if(this.scrollY > 500){
