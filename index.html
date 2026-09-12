@@ -183,6 +183,46 @@
   display: block;
 }
 
+/* ---- Mobile/tablet submenu (tap-to-open, added alongside hover) ----
+   script.js toggles the "open" class on .dropdown for touch/narrow
+   screens since :hover isn't reliable on touchscreens. */
+.dropdown.open .dropdown-content {
+  display: block;
+}
+@media (hover: none), (max-width: 947px) {
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    width: 100%;
+  }
+  .dropdown-content a {
+    padding-left: 32px;
+  }
+  .dropdown .dropbtn,
+  .dropdown .dropbtn a {
+    width: 100%;
+  }
+}
+
+/* ---- General responsive safety net ---- */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+* {
+  box-sizing: border-box;
+}
+@media (max-width: 947px) {
+  .navbar .menu {
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+}
+
 /* ---- Bilingual (EN/NP) toggle ---- */
 .lang-switch {
   display: flex;
@@ -262,7 +302,7 @@
                 <li><a href="#education" class="menu-btn i18n-text" data-en="Education" data-np="शिक्षा">Education</a></li>
 
                 <li class="dropdown ">
-                    <button class="dropbtn"><a href="#" class="menu-btn">Vivid<i class="fa fa-caret-down"></i></a>
+                    <button class="dropbtn" aria-haspopup="true" aria-expanded="false"><a href="#" class="menu-btn">Vivid<i class="fa fa-caret-down"></i></a>
                     </button>
                     <span class="dropdown-content">
                         <a href="#services" class="menu-btn i18n-text" data-en="Services" data-np="सेवाहरू">Services</a>
