@@ -75,6 +75,17 @@ function initTyped(lang){
     });
 }
 
+// ---- Keep the (now always-fixed) navbar's real height in sync so the
+// CSS padding-top offset in the <head> <style> block never falls out of
+// sync with the theme's actual navbar size, e.g. if it changes height on
+// the .sticky state or at different breakpoints. ----
+function syncNavbarHeightVar(){
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        document.documentElement.style.setProperty('--navbar-height', navbar.offsetHeight + 'px');
+    }
+}
+
 $(document).ready(function(){
     // ---- IMPORTANT: all handler bindings below run FIRST, before any
     // call to third-party plugins like Typed.js or Owl Carousel.
@@ -111,6 +122,11 @@ $(document).ready(function(){
         }
     });
 
+    // navbar is always fixed to the top now (see CSS); .sticky just
+    // toggles its "scrolled" look (background/shadow etc. from style.css)
+    syncNavbarHeightVar();
+    $(window).on('resize', syncNavbarHeightVar);
+
     $(window).scroll(function(){
         // sticky navbar on scroll script
         if(this.scrollY > 20){
@@ -118,6 +134,7 @@ $(document).ready(function(){
         }else{
             $('.navbar').removeClass("sticky");
         }
+        syncNavbarHeightVar();
         
         // scroll-up button show/hide script
         if(this.scrollY > 500){
