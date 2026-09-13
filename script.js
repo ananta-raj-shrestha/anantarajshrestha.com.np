@@ -86,7 +86,7 @@ function initTyped(lang){
 // force its own `top`/`margin-top` back to 0 so it always sits flush
 // against the very top of the page, regardless of whatever positioning
 // it shipped with.
-const RELIEF_BANNER_GAP = 3; // px of breathing room between the banner and the navbar, per request
+const RELIEF_BANNER_GAP = 0; // px of breathing room between the banner and the navbar, per request
 
 function syncHeaderOffsets(){
     const navbar = document.querySelector('.navbar');
