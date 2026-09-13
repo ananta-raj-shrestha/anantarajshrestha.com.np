@@ -239,7 +239,7 @@ img, video, iframe {
   }
 }
 
-/* ---- Sticky navbar, hardened against third-party overlay widgets ----
+/* ---- Fixed navbar, hardened against third-party overlay widgets ----
    Two external scripts on this page (the accessibility widget and the
    flood-relief banner, both loaded at the bottom of <body>) inject
    their own fixed/sticky elements with unknown, likely very high,
@@ -248,9 +248,21 @@ img, video, iframe {
    switch — even though the nav still looks fine visually. Forcing the
    navbar itself to the top of the stack (with !important, since it
    must win over both the theme's own CSS and any third-party script
-   that injects inline styles) prevents that. */
+   that injects inline styles) prevents that.
+
+   position: fixed (not sticky) is deliberate, for two reasons:
+   1. fixed is anchored to the viewport itself, never to a scrolling
+      ancestor element, so it can't be broken by any container further
+      up the tree that happens to set overflow — sticky's failure mode
+      that caused the "stays for a moment then scrolls away" bug.
+   2. fixed removes the navbar from normal document flow entirely, so
+      it doesn't reserve its own vertical space at the top of the page.
+      That's what lets the transparent navbar actually overlap the
+      .home hero image underneath it (see background below) instead of
+      pushing that image down and revealing the page's plain white
+      background where the nav used to sit. */
 .navbar {
-  position: sticky !important;
+  position: fixed !important;
   top: var(--relief-banner-height, 5px) !important;
   left: 0 !important;
   width: 100% !important;
@@ -271,13 +283,15 @@ img, video, iframe {
 .navbar, .navbar * {
   pointer-events: auto;
 }
-/* offset content so it doesn't hide behind the now-always-fixed relief
-   banner; the navbar itself is NOT included in this offset on purpose —
-   it's designed to float transparently over the hero image at the top
-   of the page (only gaining a solid background once .sticky is added on
-   scroll), so giving it its own space here would just push the hero
-   image down and leave a blank gap behind the navbar instead — exactly
-   the white-gap/invisible-text bug from the last screenshot. */
+/* offset content so it doesn't hide behind the fixed flood-relief banner;
+   the navbar itself is NOT included in this offset on purpose — with
+   position: fixed it's already removed from document flow, so it never
+   reserves space or pushes anything down. .home (the hero section) ends
+   up starting at the very top of the page with nothing else in between,
+   which is exactly what lets the transparent navbar float over the hero
+   image. Every other section just sits below .home's own height (100vh),
+   which is far taller than the navbar, so nothing else needs compensating
+   for the nav's height specifically. */
 body {
   padding-top: var(--relief-banner-height, 0px);
 }
