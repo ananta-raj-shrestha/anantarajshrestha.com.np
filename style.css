@@ -126,6 +126,45 @@ section .title::after{
     color: #fff;
 }
 
+/* ---- Priority ("More ▾") navigation ----
+   Desktop only (mobile keeps the full hamburger list, see the 947px
+   media query below). The menu itself is not allowed to wrap or grow
+   past the space left by the logo/lang-switch, so if the window is
+   narrow enough that not every link fits on one line, the extra ones
+   overflow horizontally and are clipped. script.js measures that
+   overflow and moves whichever items don't fit into the "More" dropdown
+   (#more-dropdown) that sits at the end of the list -- the same
+   collapse-into-an-arrow-menu pattern used on pis.gov.np and other
+   Nepal government sites, rather than silently hiding links. */
+@media (min-width: 948px) {
+    .navbar .menu{
+        /* Allow this flex item (within .navbar .max-width's flex row) to
+           shrink below its content width instead of forcing the row to
+           grow or wrap. li's stay display:inline-block (unchanged) and
+           nowrap keeps them on one line; whatever doesn't fit overflows
+           past the RIGHT edge (normal inline flow direction) and is
+           clipped by overflow:hidden. script.js measures that clipped
+           amount via scrollWidth vs clientWidth and moves however many
+           trailing <li>s don't fit into the #more-dropdown menu. */
+        flex-shrink: 1;
+        min-width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .navbar .logo,
+    .navbar .lang-switch{
+        flex-shrink: 0;
+    }
+}
+.navbar .menu .dropdown .fa-caret-down{
+    margin-left: 4px;
+    font-size: 0.8em;
+    transition: transform 0.2s ease;
+}
+.navbar .menu .dropdown:hover .fa-caret-down,
+.navbar .menu .dropdown.open .fa-caret-down{
+    transform: rotate(180deg);
+}
 /* menu btn styling */
 .menu-btn{
     color: #fff;
