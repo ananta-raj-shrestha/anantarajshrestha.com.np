@@ -1,4 +1,3 @@
-
 const translations = {
     en: {
         typing: ["Computer Engineer at the Government of Nepal","Network and Cyber Security Engineer", "Programmer", "ICT Officer", "Computer Engineering Instructor","Writer"],
@@ -105,6 +104,58 @@ function syncHeaderOffsets(){
     document.documentElement.style.setProperty('--navbar-height', navbar.offsetHeight + 'px');
 }
 
+// ---- "More ▾" priority navigation ----
+// Collapses whichever nav links don't fit on one line into the #more-dropdown
+// menu at the end of the list (see style.css for the layout that makes the
+// overflow measurable, and index.html for the empty #more-dropdown markup).
+// Runs only above the 947px hamburger breakpoint, where the mobile menu
+// already lists every link vertically and a "More" button would be redundant.
+function fitPriorityNav(){
+    const $navMenu = $('.navbar .menu');
+    const $more = $('#more-dropdown');
+    const $moreContent = $('#more-dropdown-content');
+    if (!$navMenu.length || !$more.length) return;
+
+    // Always start from a fully-expanded menu so we measure real widths,
+    // not whatever happened to be collapsed on the last run. Children are
+    // walked in their current (already-correct) left-to-right order and
+    // each one is reinserted immediately before the More button, which
+    // keeps that order intact.
+    $moreContent.children().toArray().forEach(function(el){
+        $more.before(el);
+    });
+    $moreContent.empty();
+
+    if (window.matchMedia('(max-width: 947px)').matches){
+        // Mobile hamburger menu: nothing should ever be parked in "More".
+        $more.hide();
+        return;
+    }
+
+    $more.show();
+
+    // Repeatedly move the last real nav item into "More" until the menu's
+    // content no longer overflows its available width. scrollWidth vs
+    // clientWidth is what "isn't fitting" boils down to once the menu is
+    // set to nowrap/overflow:hidden in CSS.
+    let guard = $navMenu.children('li').length + 2; // safety net, never infinite-loop
+    while (guard-- > 0 && $navMenu[0].scrollWidth > $navMenu[0].clientWidth + 1){
+        const candidates = $navMenu.children('li').not($more);
+        if (!candidates.length) break;
+        $moreContent.prepend(candidates.last());
+    }
+
+    if (!$moreContent.children().length){
+        $more.hide();
+    }
+}
+
+let fitPriorityNavTimer = null;
+function scheduleFitPriorityNav(){
+    clearTimeout(fitPriorityNavTimer);
+    fitPriorityNavTimer = setTimeout(fitPriorityNav, 120);
+}
+
 $(document).ready(function(){
     // ---- IMPORTANT: all handler bindings below run FIRST, before any
     // call to third-party plugins like Typed.js or Owl Carousel.
@@ -126,31 +177,49 @@ $(document).ready(function(){
 
     // set up translated text immediately (no external dependency)
     applyTranslations(currentLang);
+    // Nepali labels run a different width than English ones, so re-check
+    // whether everything still fits on one line every time the language
+    // (and therefore link widths) changes.
+    scheduleFitPriorityNav();
 
     $('#lang-switch').on('click', function(){
         currentLang = currentLang === 'en' ? 'np' : 'en';
         localStorage.setItem('site-lang', currentLang);
         applyTranslations(currentLang);
         safeInitTyped(currentLang);
+        scheduleFitPriorityNav();
     });
     // keyboard support since #lang-switch is a div acting as a button
-    // $('#lang-switch').on('keydown', function(e){
-    //     if (e.key === 'Enter' || e.key === ' '){
-    //         e.preventDefault();
-    //         $(this).trigger('click');
-    //     }
-    // });
+    $('#lang-switch').on('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' '){
+            e.preventDefault();
+            $(this).trigger('click');
+        }
+    });
 
     // navbar is always fixed to the top now (see CSS); .sticky just
     // toggles its "scrolled" look (background/shadow etc. from style.css)
     syncHeaderOffsets();
-    $(window).on('resize', syncHeaderOffsets);
+    fitPriorityNav();
+    $(window).on('resize', function(){
+        syncHeaderOffsets();
+        scheduleFitPriorityNav();
+    });
     // the relief banner script can render asynchronously (after a fetch,
     // image load, etc.), so keep re-measuring for a few seconds after
     // load in case it appears late, plus watch for any further DOM
     // changes near the top of the page
-    [300, 800, 1500, 3000].forEach(function(delay){ setTimeout(syncHeaderOffsets, delay); });
+    [300, 800, 1500, 3000].forEach(function(delay){
+        setTimeout(syncHeaderOffsets, delay);
+        setTimeout(fitPriorityNav, delay);
+    });
     new MutationObserver(function(){ syncHeaderOffsets(); }).observe(document.body, { childList: true, subtree: false });
+    // web fonts swap in after the initial layout and can change every link's
+    // rendered width (Mukta/Noto Sans Devanagari especially), so re-check
+    // once they're actually ready instead of trusting the very first measurement.
+    if (document.fonts && document.fonts.ready){
+        document.fonts.ready.then(fitPriorityNav);
+    }
 
     $(window).scroll(function(){
         // sticky navbar on scroll script
