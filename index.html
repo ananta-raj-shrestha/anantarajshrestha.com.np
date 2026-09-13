@@ -207,10 +207,23 @@
   }
 }
 
-/* ---- General responsive safety net ---- */
-html, body {
+/* ---- General responsive safety net ----
+   IMPORTANT: overflow-x is intentionally only on <html>, never on <body>.
+   Setting overflow (of any axis) directly on <body> stops it from
+   propagating scroll to the viewport, so body becomes its OWN scroll
+   container instead of the window. That's what was breaking position:
+   sticky on .navbar below — a sticky element sticks to its nearest
+   scrolling ancestor, and once that ancestor was body instead of the
+   real viewport, the navbar would only stay "stuck" briefly before
+   scrolling away with the rest of the page. Keeping overflow-x: hidden
+   on <html> alone still fully prevents the horizontal scrollbar/bounce,
+   without turning body into a second scroll container. */
+html {
   max-width: 100%;
   overflow-x: hidden;
+}
+body {
+  max-width: 100%;
 }
 img, video, iframe {
   max-width: 100%;
@@ -243,7 +256,17 @@ img, video, iframe {
   width: 100% !important;
   z-index: 2147483000 !important; /* effectively the highest usable z-index */
   pointer-events: auto !important;
-  transition: top 0.15s ease;
+  /* Transparent by default so the hero image shows through underneath it;
+     .navbar.sticky (toggled by script.js once you scroll past 20px) is
+     what applies the solid crimson background from style.css. Declared
+     explicitly here, with !important, so nothing loaded later in the
+     page (inline styles from third-party widgets, etc.) can silently
+     paint over the hero image before you've scrolled. */
+  background: transparent !important;
+  transition: top 0.15s ease, background 0.3s ease;
+}
+.navbar.sticky {
+  background: crimson !important;
 }
 .navbar, .navbar * {
   pointer-events: auto;
