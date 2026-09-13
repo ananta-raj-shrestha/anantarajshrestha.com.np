@@ -311,6 +311,10 @@ html[lang="ne"] *:not(.fa):not(.fas):not(.far):not(.fab):not(.fal):not([class*="
   outline: 2px solid deepskyblue;
   outline-offset: 2px;
 }
+.lang-switch .fa-globe {
+  font-size: 13px;
+  opacity: 0.85;
+}
 .lang-switch .lang-option {
   opacity: 0.5;
   transition: opacity 0.2s ease, color 0.2s ease;
@@ -384,9 +388,25 @@ html[lang="ne"] *:not(.fa):not(.fas):not(.far):not(.fab):not(.fal):not([class*="
                   </li> 
         
                 <li><a href="#contact" class="menu-btn i18n-text" data-en="Contact" data-np="सम्पर्क">Contact</a></li>
+
+                <!-- "More" overflow menu -----------------------------------------
+                     Empty and hidden by default. On desktop widths, script.js
+                     measures whether every <li> above fits on one line; any
+                     items that don't fit get moved in here automatically
+                     (last item first), the same "collapse into a caret/arrow
+                     menu" pattern used on pis.gov.np and other Nepal
+                     government sites. On mobile widths the full hamburger
+                     menu already lists everything, so this stays hidden and
+                     unused there. -->
+                <li class="dropdown more-dropdown" id="more-dropdown" style="display:none;">
+                    <button class="dropbtn" aria-haspopup="true" aria-expanded="false"><a href="#" class="menu-btn"><span class="i18n-text" data-en="More" data-np="थप">More</span><i class="fa fa-caret-down"></i></a>
+                    </button>
+                    <span class="dropdown-content" id="more-dropdown-content"></span>
+                </li>
             </ul>
             <!-- Bilingual EN/NP toggle -->
             <div class="lang-switch" id="lang-switch" role="button" tabindex="0" aria-label="Switch language / भाषा बदल्नुहोस्">
+                <i class="fas fa-globe" aria-hidden="true"></i>
                 <span class="lang-option active" data-lang="en">EN</span>
                 <span class="lang-sep">/</span>
                 <span class="lang-option" data-lang="np">NP</span>
