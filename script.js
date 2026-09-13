@@ -76,9 +76,18 @@ function initTyped(lang){
 // rather than guessing its selector (fragile, and broke last time), this
 // scans the live page for ANY element other than the navbar that's
 // pinned at the very top with position:fixed/sticky, and uses its real
-// rendered height. This works no matter how that script renders itself,
-// and never touches its DOM node (so it can't interfere with whatever
-// that script's own code expects, e.g. its close button).
+// rendered height.
+//
+// FIX (white gap above the banner): the banner script sometimes renders
+// itself a few pixels below the actual top of the viewport (its own
+// default styling, outside our control) instead of flush at 0, leaving
+// a strip of the page's plain white background visible above it. Since
+// we already have a direct reference to that element here, we now also
+// force its own `top`/`margin-top` back to 0 so it always sits flush
+// against the very top of the page, regardless of whatever positioning
+// it shipped with.
+const RELIEF_BANNER_GAP = 3; // px of breathing room between the banner and the navbar, per request
+
 function syncHeaderOffsets(){
     const navbar = document.querySelector('.navbar');
     if (!navbar) return;
@@ -87,6 +96,7 @@ function syncHeaderOffsets(){
     const prevTop = navbar.style.top;
     navbar.style.top = '0px';
 
+    let bannerEl = null;
     let bannerBottom = 0;
     document.body.querySelectorAll('*').forEach(function(el){
         if (el === navbar || navbar.contains(el)) return;
@@ -95,12 +105,27 @@ function syncHeaderOffsets(){
         if (el.offsetHeight === 0 || el.offsetHeight > 300) return; // skip full sections
         const rect = el.getBoundingClientRect();
         if (rect.top <= 5 && rect.bottom > bannerBottom) {
+            bannerEl = el;
             bannerBottom = rect.bottom;
         }
     });
 
+    if (bannerEl){
+        // Snap it flush to the top -- only touches position, never its
+        // content/markup, so it can't interfere with anything the
+        // banner's own script expects (close button, click handlers, etc.).
+        if (bannerEl.style.top !== '0px'){
+            bannerEl.style.setProperty('top', '0px', 'important');
+        }
+        bannerEl.style.setProperty('margin-top', '0px', 'important');
+        // re-measure after the snap, since forcing top:0 can itself change
+        // rect.bottom by a pixel or two versus the reading taken above
+        bannerBottom = bannerEl.getBoundingClientRect().bottom;
+    }
+
     navbar.style.top = prevTop; // restore before applying the real value
-    document.documentElement.style.setProperty('--relief-banner-height', Math.max(0, Math.round(bannerBottom)) + 'px');
+    const gapAboveNavbar = bannerEl ? Math.round(bannerBottom) + RELIEF_BANNER_GAP : 0;
+    document.documentElement.style.setProperty('--relief-banner-height', Math.max(0, gapAboveNavbar) + 'px');
     document.documentElement.style.setProperty('--navbar-height', navbar.offsetHeight + 'px');
 }
 
